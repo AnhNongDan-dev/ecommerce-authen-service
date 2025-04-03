@@ -1,0 +1,3 @@
+spring:
+  profiles:
+    active: local  # -Dspring.profiles.active=dev to run on environment dev

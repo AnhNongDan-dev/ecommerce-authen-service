@@ -1,0 +1,18 @@
+server:
+  port: ${MAEMAE_PORT:8099}
+
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/orcl
+    username: system
+    password: 123456
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle19cDialect
+        order_updates: true
+        batch_versioned_data: true
+    hibernate:
+      ddl-auto: none #update
+    show-sql: true
