@@ -76,49 +76,21 @@
 
     <build>
         <plugins>
-            <!-- Liquibase Plugin để thực thi các lệnh liên quan đến Liquibase -->
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>4.20.0</version>
                 <configuration>
-                    <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
-                    <diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                    <driver>oracle.jdbc.OracleDriver</driver>
+                    <outputChangeLogFile>src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</outputChangeLogFile>
                     <url>jdbc:oracle:thin:@localhost:1521/ecommerce</url>
                     <username>authen</username>
                     <password>123456</password>
-                    <defaultSchemaName>authen</defaultSchemaName>
-                    <referenceUrl>hibernate:spring:com.ecommerce.authen.entity?dialect=org.hibernate.dialect.Oracle19cDialect</referenceUrl>
+                    <driver>oracle.jdbc.OracleDriver</driver>
+                    <defaultSchemaName>AUTHEN</defaultSchemaName>
                     <verbose>true</verbose>
                 </configuration>
-                <dependencies>
-                    <!-- Hibernate 6 -->
-                    <dependency>
-                        <groupId>org.hibernate.orm</groupId>
-                        <artifactId>hibernate-core</artifactId>
-                        <version>6.3.1.Final</version>
-                    </dependency>
-                    <!-- Jakarta Persistence -->
-                    <dependency>
-                        <groupId>jakarta.persistence</groupId>
-                        <artifactId>jakarta.persistence-api</artifactId>
-                        <version>3.1.0</version>
-                    </dependency>
-                    <!-- Liquibase Hibernate 6 -->
-                    <dependency>
-                        <groupId>org.liquibase.ext</groupId>
-                        <artifactId>liquibase-hibernate6</artifactId>
-                        <version>4.20.0</version>
-                    </dependency>
-                    <!-- Oracle JDBC -->
-                    <dependency>
-                        <groupId>com.oracle.database.jdbc</groupId>
-                        <artifactId>ojdbc8</artifactId>
-                        <version>19.3.0.0</version>
-                    </dependency>
-                </dependencies>
             </plugin>
+
         </plugins>
     </build>
 </project>
