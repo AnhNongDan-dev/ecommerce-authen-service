@@ -1,4 +1,4 @@
-package com.maemae.authen;
+package com.ecommerce.authen;
 
 
 import org.springframework.boot.SpringApplication;
